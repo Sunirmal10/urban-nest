@@ -1,7 +1,7 @@
 import { FavoriteBorder, StarRounded } from '@mui/icons-material'
 import { IconButton } from '@mui/material'
 import React from 'react'
-const Product = ({item}) => {
+const SingleFilteredProduct = ({item}) => {
   return (
     <div className='flex flex-col w-[12.5rem] h-80 bg-slate-200 relative cursor-pointer'>
       <img className='w-full h-3/4 opacity-90' src={item.img} alt={item.title} />
@@ -50,4 +50,4 @@ const Product = ({item}) => {
   )
 }
 
-export default Product
+export default SingleFilteredProduct

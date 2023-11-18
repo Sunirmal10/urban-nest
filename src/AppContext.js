@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
+import { products } from './data/productsData';
 
-const AppContext = () => {
+const AppContext = createContext();
+
+const AppProvider = ({children}) => {
+
+  const [selectedCat, setSelectedCat] = useState([])
+  const [selectedPrice, setSelectedPrice] = useState([])
+
+  const [filteredproducts, setFilteredProducts] = useState(products)
+
+
   return (
-    <div>
-      
-    </div>
+    <AppContext.Provider value={{
+      selectedCat, setSelectedCat, filteredproducts, setFilteredProducts, selectedPrice, setSelectedPrice
+    }}>
+      {children}
+    </AppContext.Provider>
   )
 }
 
-export default AppContext
+export {AppProvider, AppContext}

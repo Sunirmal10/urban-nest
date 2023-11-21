@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { products } from '../data/productsData'
 import PopularProduct from './PopularProduct'
 import { IconButton } from '@mui/material'
@@ -7,7 +7,17 @@ import { ChevronLeftRounded, ChevronRightRounded } from '@mui/icons-material'
 const Popular = () => {
 
   
-  const [slideIndex, setSlideIndex] = useState(0)
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  useEffect(() => {
+    
+    const interval = setInterval(() => { 
+      handleClick("right")
+  }, 1250); 
+
+  return () => clearInterval(interval);
+
+  }, )
 
 
   const handleClick =(direction)=> {

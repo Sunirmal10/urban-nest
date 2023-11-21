@@ -4,12 +4,12 @@ import Filters from '../components/Filters'
 import FilteredProducts from '../components/FilteredProducts'
 
 const ProductList = () => {
+
   return (
     <div className='flex flex-col w-full mb-5 mt-[60px] '>
-      <div>TITLE SOMETHING</div>
       <div className='flex w-full'>
         <Filters/>
-        <FilteredProducts/>
+       <FilteredProducts/>
       </div>
     </div>
   )

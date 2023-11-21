@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
-    <div class="mt-8">
-      <div class="flex flex-col items-center justify-center px-6 py-4 mx-auto md:h-screen lg:py-0">
+    <div class="mt-8 w-screen">
+      <div class="flex flex-col items-center justify-center px-6 py-10 md:py-4 mx-auto md:h-screen">
         <div class="w-full bg-white rounded-lg border-slate-200 border md:mt-0 sm:max-w-md xl:p-0  ">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
@@ -22,7 +23,7 @@ const Register = () => {
                   name="email"
                   id="email"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-sky-600 focus:border-sky-600 block w-full p-2.5 outline-none"
-                  placeholder="name@email.com"
+                  placeholder="name@example.com"
                   required
                 />
               </div>
@@ -70,12 +71,13 @@ const Register = () => {
                 <div class="ml-3 text-sm">
                   <label htmlhtmlFor="terms" class="font-light text-gray-500 ">
                     I accept the{" "}
-                    <a
+                    <Link
+                      to={"#"}
                       class="font-medium text-sky-600 hover:underline "
-                      href="#"
+                      
                     >
                       Terms and Conditions
-                    </a>
+                    </Link>
                   </label>
                 </div>
               </div>
@@ -83,16 +85,16 @@ const Register = () => {
                 type="submit"
                 class="w-full text-white bg-sky-600 hover:bg-sky-700 focus:ring-2 focus:outline-none focus:ring-sky-300 font-medium rounded text-sm px-5 py-2.5 text-center  "
               >
-                Create an account
+                Create account
               </button>
               <p class="text-sm font-light text-gray-500 ">
                 Already have an account?{" "}
-                <a
-                  href="#"
+                <Link
+                  to={"/login"}
                   class="font-medium text-sky-600 hover:underline"
                 >
                   Login here
-                </a>
+                </Link>
               </p>
             </form>
           </div>

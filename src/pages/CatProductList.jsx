@@ -1,9 +1,8 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { AppContext } from '../AppContext'
 import SingleFilteredProduct from './SingleFilteredProduct'
-import { Link } from 'react-router-dom'
 
-const FilteredProducts = () => {
+const CatProductList = () => {
 
     const { filteredproducts, selectedCat, setSelectedCat, showSideFilter} = useContext(AppContext)
 
@@ -13,7 +12,9 @@ const FilteredProducts = () => {
    {
         filteredproducts.map((item)=>(
             
-            <SingleFilteredProduct  item={item} />
+                
+            <SingleFilteredProduct item={item} key={item.id}/>
+                
             
         ))
       }
@@ -21,4 +22,4 @@ const FilteredProducts = () => {
   )
 }
 
-export default FilteredProducts
+export default CatProductList

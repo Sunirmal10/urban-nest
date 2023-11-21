@@ -1,11 +1,21 @@
 import { ChevronLeftRounded, ChevronRightRounded } from '@mui/icons-material'
 import { IconButton } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { sliderData } from '../data/SliderData'
 
 const Slider = () => {
 
-    const [slideIndex, setSlideIndex] = useState(0)
+    const [slideIndex, setSlideIndex] = useState(0);
+
+    useEffect(() => {
+    
+      const interval = setInterval(() => { 
+        handleClick("right")
+    }, 5000); 
+
+    return () => clearInterval(interval);
+
+    }, )
 
 
     const handleClick =(direction)=> {

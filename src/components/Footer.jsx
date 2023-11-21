@@ -12,7 +12,7 @@ const Footer = () => {
         <div className='flex w-2/5 flex-col justify- items-start gap-6'>
         <div className='flex items-center text-lg cursor-pointer'>
         <div className='text-green-700 font-bold'>Urban</div>
-        <div className='text-orange-400 font-semibold text-sm pt-1'>Nest</div>
+        <div className='text-orange-400 font-semibold'>Nest</div>
       </div>
             <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
             <div className='ml-[-10px] flex gap-2'>

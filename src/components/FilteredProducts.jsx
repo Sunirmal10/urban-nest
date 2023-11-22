@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom'
 
 const FilteredProducts = () => {
 
-    const { filteredproducts, selectedCat, setSelectedCat, showSideFilter} = useContext(AppContext)
+    const { filteredproducts, selectedCat, setSelectedCat} = useContext(AppContext)
 
   return (
-    <div className={ showSideFilter ? 'flex flex-wrap w-4/5 justify-start gap-[70px] px-6 pt-14 items-start relative' : 'flex flex-wrap w-full justify-start gap-[75px] px-6 pt-14 items-start relative'}>
+    <div className='flex flex-wrap w-full md:w-4/5 md:justify-start md:gap-[75px] justify-around gap-2 sm:gap-2 md:px-6 px-1 pt-14 items-start relative'>
     <p className='flex font-semibold absolute top-5 left-6'>PRODUCTS</p>
    {
         filteredproducts.map((item)=>(

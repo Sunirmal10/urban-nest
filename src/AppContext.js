@@ -18,15 +18,13 @@ const AppProvider = ({children}) => {
 
 const [navCatSelected, setNavCatSelected] = useState(false);
 
-const selFashion = useRef();
-const selBeauty = useRef();
-const selDecor = useRef();
-const selElec = useRef();
+const [valChecked, setValChecked] = useState()
+
 
 
   return (
     <AppContext.Provider value={{
-      selectedCat, setSelectedCat, filteredproducts, setFilteredProducts, selectedPrice, setSelectedPrice, showSideFilter, setshowSideFilter, catList, setCatList, navCatSelected, setNavCatSelected, selFashion, selBeauty, selDecor, selElec, ratings, setRatings
+      selectedCat, setSelectedCat, filteredproducts, setFilteredProducts, selectedPrice, setSelectedPrice, showSideFilter, setshowSideFilter, catList, setCatList, navCatSelected, setNavCatSelected, ratings, setRatings, valChecked, setValChecked
     }}>
       {children}
     </AppContext.Provider>

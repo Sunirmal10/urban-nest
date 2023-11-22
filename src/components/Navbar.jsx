@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const [displayMenu, setDisplayMenu] = useState(false)
 
-  const {setSelectedCat, selFashion, selBeauty, selDecor, selElec, } = useContext(AppContext)
+  const {setSelectedCat, selFashion, selBeauty, selDecor, selElec, valChecked, setValChecked } = useContext(AppContext)
 
 
   const displaySideMenu = () => {
@@ -16,34 +16,19 @@ const Navbar = () => {
   };
 
   const handleClick = (e) => {
+
+    // e.preventDefault()
+
     let cat = e.target.innerHTML.toLowerCase();
 
-    if (cat === "fashion")  {selFashion.current.click();
-        selBeauty.current.checked = false;
-        selDecor.current.checked = false;
-        selElec.current.checked = false;
-      }
-    if (cat === "beauty")  {selBeauty.current.click();
-      selFashion.current.checked = false;
-        selDecor.current.checked = false;
-        selElec.current.checked = false;
-      }
-    if (cat === "electronics")  {selElec.current.click();
-        selBeauty.current.checked = false;
-        selDecor.current.checked = false;
-        selFashion.current.checked = false;
-      }
-    if (cat === "decor")  {selDecor.current.click();
-        selBeauty.current.checked = false;
-        selFashion.current.checked = false;
-        selElec.current.checked = false;
-      }
-   
+    console.log(cat, typeof cat, "cat")
+    setValChecked(cat)
 
     // console.log(cat)
     setSelectedCat([]);
     setSelectedCat([...cat, cat]);
     // setNavCatSelected(true)
+    
   }
 
   return (
@@ -57,10 +42,10 @@ const Navbar = () => {
         displayMenu && 
         <div className='w-full h-screen bg-slate-100 z-20 absolute left-0 top-14'>
            <div className='flex flex-col gap-2 text-sm font-semibold cursor-pointer w-full p-2 h-screen'>
-        <div className='flex p-1 transition-all ease-in-out h-[56px] border-b w-full  border-slate-300 items-center z-10'>FASHION</div>
-        <div className='flex p-1 transition-all ease-in-out h-[56px] border-b w-full  border-slate-300 items-center z-10'>ELECTRONICS</div>
-        <div className='flex p-1 transition-all ease-in-out h-[56px] border-b w-full  border-slate-200 items-center z-10'>DECOR</div>
-        <div className='flex p-1 transition-all ease-in-out h-[56px] border-b w-full  border-slate-200 items-center z-10'>BEAUTY</div>
+        <Link to={'/product-list'} onClick={(e)=>handleClick(e)}><div className='flex p-1 transition-all ease-in-out h-[56px] border-b w-full  border-slate-200 items-center z-10'>FASHION</div></Link>
+        <Link to={'/product-list'} onClick={(e)=>handleClick(e)}><div className='flex p-1 transition-all ease-in-out h-[56px] border-b w-full  border-slate-200 items-center z-10'>ELECTRONICS</div></Link>
+        <Link to={'/product-list'} onClick={(e)=>handleClick(e)}><div className='flex p-1 transition-all ease-in-out h-[56px] border-b w-full  border-slate-200 items-center z-10'>DECOR</div></Link>
+        <Link to={'/product-list'} onClick={(e)=>handleClick(e)}><div className='flex p-1 transition-all ease-in-out h-[56px] border-b w-full  border-slate-200 items-center z-10'>BEAUTY</div></Link>
         <div className='flex p-1 transition-all ease-in-out h-[56px] border-b w-full  border-slate-200 items-center z-10'>
         <Link to={"/register"}>
         SIGN UP
@@ -75,31 +60,31 @@ const Navbar = () => {
         </div>
       }
       <Link to={"/"}>
-      <div className='flex md:text-lg cursor-pointer items-center'>
+      <div className='flex md:text-lg cursor-pointer ml-8 sm:ml-0 items-center'>
         <div className='text-green-700 font-bold'>Urban</div>
         <div className='text-orange-400 font-semibold'>Nest</div>
       </div>
       </Link>
       
-      <div className=' hidden md:flex gap-4 text-sm font-semibold text-slate-700 cursor-pointer'>
+      <div className=' hidden md:flex lg:gap-4 md:gap-2 gap-4 text-sm md:text-[10px] lg:text-sm font-semibold text-slate-700 cursor-pointer'>
         <Link to={'/product-list'} onClick={(e)=>handleClick(e)}><div className='flex p-1 hover:border-b-4 hover:border-green-400 transition-all ease-in-out w-min h-[56px] items-center z-10'>FASHION</div></Link>
         <Link to={'/product-list'} onClick={(e)=>handleClick(e)}><div className='flex p-1 hover:border-b-4 hover:border-pink-400 transition-all ease-in-out w-min h-[56px] items-center z-10'>ELECTRONICS</div></Link>
         <Link to={'/product-list'} onClick={(e)=>handleClick(e)}><div className='flex p-1 hover:border-b-4 hover:border-yellow-400 transition-all ease-in-out w-min h-[56px] items-center z-10'>DECOR</div></Link>
         <Link to={'/product-list'} onClick={(e)=>handleClick(e)}><div className='flex p-1 hover:border-b-4 hover:border-sky-400 transition-all ease-in-out w-min h-[56px] items-center z-10'>BEAUTY</div></Link>
       </div>
-      <div className='md:flex hidden items-center gap-1 border hover:bg-slate-200 border-slate-200 px-2 rounded'>
-        <input type="text" className='bg-transparent h-8 rounded px-6 text-sm focus:outline-none' placeholder='Search for products here'/>
+      <div className='sm:flex hidden items-center gap-1 border hover:bg-slate-200 border-slate-200 px-2 rounded'>
+        <input type="text" className='bg-transparent w-full sm:w-44 md:w-36 lg:w-full h-8 rounded md:px-4 sm:p-2 text-sm focus:outline-none' placeholder='Search here'/>
         <IconButton>
         <SearchRounded/>
         </IconButton>
       </div>
-      <div className='md:flex hidden gap-3 text-slate-700 items-center'>
-      <div className='text-sm font-semibold cursor-pointer hover:text-slate-500'>
+      <div className='md:flex hidden gap-1 md:gap-2 md:ml-4 lg:ml-0 text-slate-700 items-center'>
+      <div className='text-sm lg:text-sm md:text-[12px] font-semibold cursor-pointer hover:text-slate-500'>
         <Link to={"/register"}>
         Sign Up
         </Link>
         </div>
-      <div className='text-sm font-semibold cursor-pointer hover:text-slate-500'>
+      <div className='text-sm lg:text-sm md:text-[12px] font-semibold cursor-pointer hover:text-slate-500'>
         <Link to={"/login"}>
         Login
         </Link>

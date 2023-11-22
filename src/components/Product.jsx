@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Product = ({item}) => {
   return (
     <Link to={`/product/${item.id}`} >
-    <div className='flex flex-col w-[12.5rem] h-80 bg-slate-200 relative cursor-pointer'>
+    <div className='flex flex-col md:w-[12.5rem] w-[9.5rem] md:h-80 h-72 bg-slate-200 relative cursor-pointer'>
       <img className='w-full h-3/4 opacity-90' src={item.img} alt={item.title} />
       <p className='text-sm font-semibold px-1 pt-2'>{item.title}</p>
       <p className='flex items-center absolute px-1 left-0 bottom-1/4 backdrop-blur bg-slate-200/40 text-xs text-green-700'>

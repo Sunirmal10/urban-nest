@@ -1,6 +1,6 @@
 # Overview:
 
-A modern responsive e-commerce website with modern UI/UX design using React.js, Tailwind, and Material UI.
+A modern responsive e-commerce website with modern UI/UX design using React.js, Tailwind, and Material UI, with multiple filters.
 
 # Key features:
 

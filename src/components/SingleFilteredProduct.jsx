@@ -26,13 +26,12 @@ const SingleFilteredProduct = ({item}) => {
         <div className='flex gap-1 items-center px-1'>
         { 
         item.discount !== "" &&<p className='text-slate-700 text-xs pt-1 font-semibold'>₹ 
-            {Math.round(item.price*((100-item.discount)/100))}.00
-          </p>
+{item.price}.00          </p>
           }
         
         <p className={item.discount !== "" ? 'text-xs pt-1 pl-1 text-slate-700 line-through' : 'text-xs pt-1 pl-1 text-slate-700 font-semibold'}>
         ₹ {
-          item.price
+          Math.round(item.price*((100+item.discount)/100))
           }.00
           
         </p>

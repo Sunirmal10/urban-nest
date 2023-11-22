@@ -149,12 +149,24 @@ const Filters = () => {
     let flatAgain = tempPriceItems.flat();
 
 
-      setFilteredProducts(flatAgain)
+      setFilteredProducts(flatAgain);
+
+      // cat && price && ratings
+
+      if (selectedPrice.length && ratings) {
+        console.log(ratings)
+       let pros = flatAgain.filter((item) =>{let r = parseFloat(item.rating) >= parseFloat(ratings)
+       console.log(item.rating, ratings, r, "item.ratings, ratings, R")
+      return r}
+       );
+        console.log(pros, "pros")
+        setFilteredProducts([...pros])
+      }
 
     }
 
-// ratings
-    if (ratings) {
+// cat && ratings
+    if (ratings && selectedPrice.length === 0) {
       console.log(ratings)
      let lis = flat.filter((item) =>{let r = parseFloat(item.rating) >= parseFloat(ratings)
      console.log(item.rating, ratings, r, "item.ratings, ratings, R")
@@ -163,6 +175,46 @@ const Filters = () => {
       console.log(lis, "lis")
 
       setFilteredProducts([...lis])
+
+
+  // cat && ratings && price
+
+      if (ratings && selectedPrice.length) {
+
+        console.log("price on")
+        let tempPriceRateItems = selectedPrice.map((itemPrice)=> {
+          
+        let priceList
+  
+        if (itemPrice === "500") {
+         priceList = lis.filter((item)=> item.price < 500)
+         console.log(priceList, "priceList")
+  
+        }
+        if (itemPrice === "1000") {
+         priceList = lis.filter((item)=> item.price >= 500 && item.price < 1000 )
+  
+  
+        }
+        if (itemPrice === "5000") {
+         priceList = lis.filter((item)=> item.price >= 1000 && item.price < 5000 )
+  
+  
+        }
+        if (itemPrice === "10000") {
+         priceList = lis.filter((item)=> item.price > 5000)
+        }
+  
+        return priceList;
+  
+      })
+  
+      let flatOnceAgain = tempPriceRateItems.flat();
+  
+  
+        setFilteredProducts(flatOnceAgain);
+
+    }
 
     }
 

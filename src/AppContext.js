@@ -1,5 +1,5 @@
 import React, { createContext, useRef, useState } from 'react'
-import { products } from './data/productsData';
+import { products } from './constants/productsData';
 
 const AppContext = createContext();
 
@@ -14,8 +14,7 @@ const AppProvider = ({children}) => {
 
   const [catList, setCatList] = useState();
 
-  const [ratings, setRatings] = useState()
-  const [discount, setDiscount] = useState()
+  const [ratings, setRatings] = useState(null)
 
 const [navCatSelected, setNavCatSelected] = useState(false);
 
@@ -27,7 +26,7 @@ const selElec = useRef();
 
   return (
     <AppContext.Provider value={{
-      selectedCat, setSelectedCat, filteredproducts, setFilteredProducts, selectedPrice, setSelectedPrice, showSideFilter, setshowSideFilter, catList, setCatList, navCatSelected, setNavCatSelected, selFashion, selBeauty, selDecor, selElec, ratings, setRatings, discount, setDiscount
+      selectedCat, setSelectedCat, filteredproducts, setFilteredProducts, selectedPrice, setSelectedPrice, showSideFilter, setshowSideFilter, catList, setCatList, navCatSelected, setNavCatSelected, selFashion, selBeauty, selDecor, selElec, ratings, setRatings
     }}>
       {children}
     </AppContext.Provider>

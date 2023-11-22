@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { products } from '../data/productsData'
+import { products } from '../constants/productsData'
 import PopularProduct from './PopularProduct'
 import { IconButton } from '@mui/material'
 import { ChevronLeftRounded, ChevronRightRounded } from '@mui/icons-material'

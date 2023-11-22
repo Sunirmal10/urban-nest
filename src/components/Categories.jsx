@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { categories } from '../data/SliderData'
+import { categories } from '../constants/SliderData'
 import { Link } from 'react-router-dom'
 import { AppContext } from '../AppContext'
 

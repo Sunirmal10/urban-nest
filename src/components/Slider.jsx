@@ -1,7 +1,7 @@
 import { ChevronLeftRounded, ChevronRightRounded } from '@mui/icons-material'
 import { IconButton } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { sliderData } from '../data/SliderData'
+import { sliderData } from '../constants/SliderData'
 
 const Slider = () => {
 

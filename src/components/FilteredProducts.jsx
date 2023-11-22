@@ -13,7 +13,7 @@ const FilteredProducts = () => {
    {
         filteredproducts.map((item)=>(
             
-            <SingleFilteredProduct  item={item} />
+            <SingleFilteredProduct  item={item} key={item.id}/>
             
         ))
       }

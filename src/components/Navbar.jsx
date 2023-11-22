@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const [displayMenu, setDisplayMenu] = useState(false)
 
-  const {setSelectedCat, setNavCatSelected, selFashion, selBeauty, selDecor, selElec, } = useContext(AppContext)
+  const {setSelectedCat, selFashion, selBeauty, selDecor, selElec, } = useContext(AppContext)
 
 
   const displaySideMenu = () => {

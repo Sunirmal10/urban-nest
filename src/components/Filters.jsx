@@ -1,15 +1,31 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { AppContext } from '../AppContext'
-import { products } from '../data/productsData';
+import { products } from '../constants/productsData';
 
 const Filters = () => {
 
-  const {selectedCat, setSelectedCat, setFilteredProducts, selectedPrice, setSelectedPrice, navCatSelected, selFashion, selBeauty, selDecor, selElec, ratings, setRatings, discount, setDiscount} = useContext(AppContext);
+  const {selectedCat, setSelectedCat, setFilteredProducts, selectedPrice, setSelectedPrice, selFashion, selBeauty, selDecor, selElec, ratings, setRatings, discount, setDiscount} = useContext(AppContext);
+
+  const tagRef = useRef();
+  const rateRef = useRef();
+
+  const unCheck = (item)=> {
+    item.checked = false;
+  };
+
+// Clear All Filters
 
   const handleClearAll = () => {
-    setSelectedCat([]);
-    window.location.reload();
-  }
+    setSelectedCat([]); // clearing all selected categories
+    setSelectedPrice([]); // clearing all selected prices
+    setRatings(); // clearing ratings
+    const elements = document.getElementsByTagName('input');
+    tagRef.current = Array.from(elements);
+    tagRef.current.forEach(unCheck); // unchecking all selected checkboxes
+    }
+
+
+    // Category Filter
 
   const handlecategory = (e) => {
 
@@ -23,9 +39,12 @@ const Filters = () => {
         setSelectedCat(filters);
       } else {
         setSelectedCat([...selectedCat, value]);
+        console.log(selectedCat)
       }
 
   };
+
+  // Price Filter
 
   const handlePrice = (e) => {
 
@@ -37,58 +56,123 @@ const Filters = () => {
         setSelectedPrice(filters);
       } else {
         setSelectedPrice([...selectedPrice, value]);
+        console.log(selectedPrice, "price")
       }
 
   };
 
+  //Ratings Filter
+
   const handleRatings = (e) => {
-      setRatings(...ratings,e.target.value)
-      console.log(ratings)
+
+    const {value} = e.target;
+    setRatings();    
+    setRatings(value);
+
+    let ratingArr = document.getElementsByName("rating");
+    rateRef.current = Array.from(ratingArr);
+    console.log(rateRef.current)
+
+    const unRate = (item) => {
+      if (item.value !== value) { item.checked = false;
+}    }
+
+    rateRef.current.forEach(unRate);
+
   };
-  
-  const handleDiscount = (e) => {
-    setDiscount(...discount, e.target.value)
-  };
+
+  // useEffect
 
  useEffect(() => {
 
   filteredItems();
 
- }, [selectedCat]);
+ }, [selectedCat, selectedPrice, ratings]);
+
+
+
+ // FILTER FUNCTION
 
  const filteredItems = () => {
 
-  if (selectedCat.length >0) {
+  // Filtering Category wise
+
+  if (selectedCat.length) {
+
+    let updatedList;
 
     let tempItems = selectedCat.map((selectedCategory) => {
-      let temp = products.filter((item) => item.category === selectedCategory);
+      updatedList = products.filter((item) => item.category === selectedCategory);
+      console.log(updatedList, "updatedLIst")
 
-      return temp;
-    });
-
-    setFilteredProducts(tempItems.flat());
-
-
-  } else if (selectedCat.length > 0 && ratings > 0) {
-    let tempItems = selectedCat.map((selectedCategory) => {
       
-      let temp = products.map((item) => {
-        let temp2;
-        if (item.category === selectedCategory) {
-           temp2 = item.filter((e)=>e.rating >= ratings)
-        }
-
-        return temp2
-      })
-
-      return temp;
+      
+      
+      return updatedList;
     });
+    let flat = tempItems.flat();
 
-    setFilteredProducts(tempItems.flat());
+    setFilteredProducts(flat);
+
+    // prices
+
+    if (selectedPrice.length) {
+
+      console.log("price on")
+      let tempPriceItems = selectedPrice.map((itemPrice)=> {
+        
+      let priceList
+
+      if (itemPrice === "500") {
+       priceList = flat.filter((item)=> item.price < 500)
+       console.log(priceList, "priceList")
+
+      }
+      if (itemPrice === "1000") {
+       priceList = flat.filter((item)=> item.price >= 500 && item.price < 1000 )
+
+
+      }
+      if (itemPrice === "5000") {
+       priceList = flat.filter((item)=> item.price >= 1000 && item.price < 5000 )
+
+
+      }
+      if (itemPrice === "10000") {
+       priceList = flat.filter((item)=> item.price > 5000)
+      }
+
+      return priceList;
+
+    })
+
+    let flatAgain = tempPriceItems.flat();
+
+
+      setFilteredProducts(flatAgain)
+
+    }
+
+// ratings
+    if (ratings) {
+      console.log(ratings)
+     let lis = flat.filter((item) =>{let r = parseFloat(item.rating) >= parseFloat(ratings)
+     console.log(item.rating, ratings, r, "item.ratings, ratings, R")
+    return r}
+     );
+      console.log(lis, "lis")
+
+      setFilteredProducts([...lis])
+
+    }
+
+  
+    
   }
-else {
+  
+  else {
       setFilteredProducts([...products]);
-  }
+  }  
 
  };
 
@@ -121,19 +205,16 @@ else {
         <div className='flex flex-col gap-2 text-sm pt-2'>
           <p className='flex flex-col font-semibold'>Price</p>
           <label htmlFor="less500">
-            <input type="checkbox" onChange={(e)=>handlePrice(e)} value={'less500'} name='less500' id='less500'/> {`<`} ₹500
+            <input type="checkbox" onChange={(e)=>handlePrice(e)} value={"500"} name='price' id='less500'/> {"<"} ₹500
           </label>
           <label htmlFor="500-1000">
-            <input type="checkbox" onChange={(e)=>handlePrice(e)} value={'500-1000'} name='500-1000' id='500-1000'/> ₹500 - ₹999
+            <input type="checkbox" onChange={(e)=>handlePrice(e)} value={"1000"} name='price' id='500-1000'/> ₹500 - ₹999
           </label>
           <label htmlFor="1000-5000">
-            <input type="checkbox" onChange={(e)=>handlePrice(e)} value={'1000-5000'} name='1000-5000' id='1000-5000'/> ₹1000 - ₹4999
+            <input type="checkbox" onChange={(e)=>handlePrice(e)} value={"5000"} name='price' id='1000-5000'/> ₹1000 - ₹4999
           </label>
           <label htmlFor="5000-10000">
-            <input type="checkbox" onChange={(e)=>handlePrice(e)} value={'5000-10000'} name='5000-10000' id='5000-10000'/> ₹5000 - ₹9999
-          </label>
-          <label htmlFor="more10000">
-            <input type="checkbox" onChange={(e)=>handlePrice(e)} value={'more10000'} name='more10000' id='more10000'/> {`>`} ₹9999
+            <input type="checkbox" onChange={(e)=>handlePrice(e)} value={"10000"} name='price' id='5000-10000'/> {">"} ₹5000
           </label>
         </div>
 
@@ -142,39 +223,19 @@ else {
         <div className='flex flex-col gap-2 text-sm pt-2'>
           <p className='flex flex-col font-semibold'>Ratings</p>
           <label htmlFor="fourAbove">
-            <input type="checkbox" value={4} name='fourAbove' id='fourAbove' onClick={(e)=>handleRatings(e)}/> 4★ & above
+            <input type="checkbox" value={'4'} name='rating' id='fourAbove' onClick={(e)=>handleRatings(e)} /> 4★ & above
           </label>
           <label htmlFor="threeAbove">
-            <input type="checkbox" value={3} name='threeAbove' id='threeAbove' onClick={(e)=>handleRatings(e)}/> 3★ & above
+            <input type="checkbox" value={'3'} name='rating' id='threeAbove' onClick={(e)=>handleRatings(e)} /> 3★ & above
           </label>
           <label htmlFor="twoAbove">
-            <input type="checkbox" value={2} name='twoAbove' id='twoAbove' onClick={(e)=>handleRatings(e)}/> 2★ & above
+            <input type="checkbox" value={'2'} name='rating' id='twoAbove' onClick={(e)=>handleRatings(e)} /> 2★ & above
           </label>
           <label htmlFor="oneAbove">
-            <input type="checkbox" value={1} name='oneAbove' id='oneAbove' onClick={(e)=>handleRatings(e)}/> 1★ & above
+            <input type="checkbox" value={'1'} name='rating' id='oneAbove' onClick={(e)=>handleRatings(e)} /> 1★ & above
           </label>
         </div>
 
-      {/* discount filter */}
-
-        <div className='flex flex-col gap-2 text-sm pt-2'>
-          <p className='flex flex-col font-semibold'>Discount</p>
-          <label htmlFor="50above">
-            <input type="checkbox" value={50} name='50above' id='50above'  onClick={(e)=>handleDiscount(e)}/> 50% & above
-          </label>
-          <label htmlFor="40above">
-            <input type="checkbox" value={40} name='40above' id='40above' onClick={(e)=>handleDiscount(e)}/> 40% & above
-          </label>
-          <label htmlFor="30above">
-            <input type="checkbox" value={30} name='30above' id='30above' onClick={(e)=>handleDiscount(e)}/> 30% & above
-          </label>
-          <label htmlFor="20above">
-            <input type="checkbox" value={20} name='20above' id='20above' onClick={(e)=>handleDiscount(e)}/> 20% & above
-          </label>
-          <label htmlFor="10above">
-            <input type="checkbox" value={10} name='10above' id='10above' onClick={(e)=>handleDiscount(e)}/> 10% & above
-          </label>
-        </div>
       </div>
     </div>
   )

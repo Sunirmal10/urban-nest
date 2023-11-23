@@ -22,6 +22,10 @@ A modern responsive e-commerce website with modern UI/UX design using React.js, 
 
 https://github.com/Sunirmal10/urban-nest.git
 
+# website link:
+
+https://urban-nest-shop.netlify.app/
+
 # Deployment:
 
 1. Clone the git repository using the GitHub repo link and enter the project folder as follows:

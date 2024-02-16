@@ -85,7 +85,7 @@ export const products = [
     desc: "Indulge in the exquisite scent of this luxurious perfume.",
     price: 840,
     discount: 50,
-    status: "popular",
+    status: "normal",
   },
   {
     id: 9,
@@ -129,7 +129,7 @@ export const products = [
     desc: "Illuminate your features with the radiant glow of this luminous highlighter palette.",
     price: 420,
     discount: "",
-    status: "popular",
+    status: "normal",
   },
   {
     id: 13,
@@ -184,7 +184,7 @@ export const products = [
     desc: "Add a touch of edginess to your look with this denim jacket featuring patches.",
     price: 800,
     discount: 40,
-    status: "popular",
+    status: "normal",
   },
   {
     id: 18,
@@ -206,7 +206,7 @@ export const products = [
     desc: "Define your waistline with this bold and stylish statement belt.",
     price: 350,
     discount: "",
-    status: "popular",
+    status: "normal",
   },
   {
     id: 20,

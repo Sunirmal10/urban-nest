@@ -40,22 +40,26 @@ const Popular = () => {
   });
 
   const handleClick = (direction) => {
-        if (window.innerWidth <= 768 && window.innerWidth > 640 && cardWidthPlusGap === 164){ direction === "right"
-        ? setSlideIndex(slideIndex < 12 ? slideIndex + 1 : 0)
-        : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 12);
+        if (window.innerWidth > 768 && cardWidthPlusGap === 164){ direction === "right"
+        ? setSlideIndex(slideIndex < 3 ? slideIndex + 1 : 0)
+        : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 3);
 } 
-      else if ( window.innerWidth < 640 && window.innerWidth > 425 && cardWidthPlusGap === 164){ direction === "right"
-        ? setSlideIndex(slideIndex < 9 ? slideIndex + 1 : 0)
-        : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 9);
+        else if (window.innerWidth <= 768 && window.innerWidth > 640 && cardWidthPlusGap === 164){ direction === "right"
+        ? setSlideIndex(slideIndex < 4 ? slideIndex + 1 : 0)
+        : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 4);
+} 
+      else if ( window.innerWidth <= 640 && window.innerWidth > 425 && cardWidthPlusGap === 164){ direction === "right"
+        ? setSlideIndex(slideIndex < 4 ? slideIndex + 1 : 0)
+        : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 4); // 4 slides hide in total //
 } 
       else if ( window.innerWidth <= 425 && cardWidthPlusGap === 164){ direction === "right"
-        ? setSlideIndex(slideIndex < 10 ? slideIndex + 1 : 0)
-        : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 10);
+        ? setSlideIndex(slideIndex < 6 ? slideIndex + 1 : 0)
+        : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 6); // 6 slides hide in total //
 } 
  else   
         { direction === "right"
-        ? setSlideIndex(slideIndex < 6 ? slideIndex + 1 : 0)
-        : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 6);
+        ? setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0)
+        : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
 }    
   };
 

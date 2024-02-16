@@ -1,6 +1,6 @@
 # Overview:
 
-A modern responsive e-commerce website with modern UI/UX design using React.js, Tailwind, and Material UI, with multiple filters.
+This project represents an innovative e-commerce website, skillfully crafted with ReactJS, HTML, TailwindCSS, and Material UI. The design prioritizes a contemporary UI/UX, featuring engaging elements like a Banner and a Card Slider. Notably, it introduces a dynamic Multi-Filter System, empowering users to refine product searches based on categories, price, and ratings.
 
 # Key features:
 

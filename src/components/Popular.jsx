@@ -31,13 +31,13 @@ const Popular = () => {
 
   const [slideIndex, setSlideIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleClick("right");
-    }, 1250);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     handleClick("right");
+  //   }, 1250);
 
-    return () => clearInterval(interval);
-  });
+  //   return () => clearInterval(interval);
+  // });
 
   const handleClick = (direction) => {
         if (window.innerWidth > 768 && cardWidthPlusGap === 164){ direction === "right"

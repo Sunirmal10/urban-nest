@@ -19,7 +19,7 @@ const Cart = () => {
           Wishlist <div>{`(${0})`}</div>
         </span>
         <div className="md:flex hidden items-center cursor-pointer border border-slate-400 rounded bg-white scale-[0.75] md:scale-1 hover:bg-slate-400 text-slate-400 hover:text-white text-sm py-2 px-4">
-          CHECKOUT NOW
+          CHECKOUT NOW {">>"}
         </div>
       </div>
       {/* bottom */}

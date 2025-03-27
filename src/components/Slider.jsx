@@ -47,8 +47,12 @@ const Slider = () => {
                 <div className='flex w-screen h-full bg-orange-200' key={item.id}>
                     <img
                     className='flex w-3/5 h-full'
-                    src={item.img} alt={"banner"+item.id} />
-                    <img className='flex w-2/5 h-full' src={item.imgSide} alt={"side-banner"+item.id} />
+                    src={item.img} alt={"banner"+item.id}
+                    loading="lazy"
+                    />
+                    <img className='flex w-2/5 h-full' src={item.imgSide} alt={"side-banner"+item.id}
+                    loading="lazy"
+                    />
                 </div>
             ))
         }
@@ -62,10 +66,13 @@ const Slider = () => {
         </IconButton>
       </div>
       <div className='flex gap-3 absolute bottom-5 left-[45%] z-10'>
-            <div className={slideIndex === 0 ? 'flex w-1 h-1 md:w-2 md:h-2 bg-slate-400 rounded-full' : 'flex w-1 h-1 md:w-2 md:h-2 bg-slate-200 rounded-full'}></div>
-            <div className={slideIndex === 1 ? 'flex w-1 h-1 md:w-2 md:h-2 bg-slate-400 rounded-full' : 'flex w-1 h-1 md:w-2 md:h-2 bg-slate-200 rounded-full'}></div>
-            <div className={slideIndex === 2 ? 'flex w-1 h-1 md:w-2 md:h-2 bg-slate-400 rounded-full' : 'flex w-1 h-1 md:w-2 md:h-2 bg-slate-200 rounded-full'}></div>
- 
+        {
+          sliderData.map((item, i)=>( 
+
+            <div key={i} className={slideIndex === i ? 'flex w-1 h-1 md:w-2 md:h-2 bg-slate-400 rounded-full' : 'flex w-1 h-1 md:w-2 md:h-2 bg-slate-200 rounded-full'}></div>
+          ))
+        }
+            
         </div>
     </div>
   )

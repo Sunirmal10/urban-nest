@@ -7,7 +7,7 @@ const Footer = () => {
     let year = new Date().getFullYear()
 
   return (
-    <div className='flex flex-col w-full mt-4 p-5 sm:p-7 md:p-12 bg-slate-950 text-slate-100 md:text-xs text-[10px]'>
+    <footer className='flex flex-col w-full mt-4 p-5 sm:p-7 md:p-12 bg-slate-950 text-slate-100 md:text-xs text-[10px]'>
       <div className='flex flex-col md:flex-row sm:gap-10 gap-7 py-5 md:py-10'>
         <div className='flex w-full sm:w-2/5 flex-col justify-start items-start gap-6'>
         <div className='flex items-center text-lg cursor-pointer'>
@@ -73,7 +73,7 @@ const Footer = () => {
         © {year} UrbanNest. All rights reserved.
         </div>
       </div>
-    </div>
+    </footer>
   )
 }
 

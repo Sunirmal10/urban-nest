@@ -9,7 +9,7 @@ const SingleProduct = () => {
 
 
   return (
-    <div className='flex flex-col mt-20 mb-5 px-5'>
+    <main className='flex flex-col mt-20 mb-5 px-5'>
         <div>
         </div>
         <div className='flex flex-col sm:flex-row w-full gap-5'>
@@ -35,7 +35,7 @@ const SingleProduct = () => {
         </div>  
         </div>
       
-    </div>
+    </main>
   )
 }
 

@@ -64,7 +64,7 @@ const Popular = () => {
   };
 
   return (
-    <div className="flex w-full gap-[20px] md:pt-14 pt-10 p-1 md:p-8 relative md:pl-6 pl-2 overflow-hidden scroll-smooth">
+    <section className="flex w-full gap-[20px] md:pt-14 pt-10 p-1 md:p-8 relative md:pl-6 pl-2 overflow-hidden scroll-smooth">
       <p className="flex font-semibold absolute md:top-5 top-2 md:left-6 left-2 z-10">
         POPULAR PRODUCTS
       </p>
@@ -101,7 +101,7 @@ const Popular = () => {
           <ChevronRightRounded />
         </IconButton>
       </div>
-    </div>
+    </section>
   );
 };
 

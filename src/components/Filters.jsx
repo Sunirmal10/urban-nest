@@ -233,7 +233,7 @@ const Filters = () => {
   };
 
   return (
-    <div className="w-full md:w-1/5 border-b border-slate-300 pb-2 md:pb-0 md:border-none">
+    <aside className="w-full md:w-1/5 border-b border-slate-300 pb-2 md:pb-0 md:border-none">
       {" "}
       {/* filter container */}
       <div className="flex font-semibold justify-between mt-5 pl-5 pb-3 border-slate-300 border-b">
@@ -386,7 +386,7 @@ const Filters = () => {
           </label>
         </div>
       </div>
-    </div>
+    </aside>
   );
 };
 

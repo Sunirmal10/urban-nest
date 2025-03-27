@@ -6,12 +6,12 @@ import FilteredProducts from '../components/FilteredProducts'
 const ProductList = () => {
 
   return (
-    <div className='flex flex-col w-full mb-5 mt-[60px] relative'>
+    <main className='flex flex-col w-full mb-5 mt-[60px] relative'>
       <div className='flex flex-col md:flex-row w-full'>
         <Filters/>
        <FilteredProducts/>
       </div>
-    </div>
+    </main>
   )
 }
 

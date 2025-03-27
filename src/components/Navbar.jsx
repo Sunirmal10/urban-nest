@@ -32,7 +32,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='flex items-center p-5 md:w-full w-screen justify-between fixed top-0 left-0 right-0 z-50 h-14  md:justify-between shadow-md shadow-slate-300 bg-white
+    <nav className='flex items-center p-5 md:w-full w-screen justify-between fixed top-0 left-0 right-0 z-50 h-14  md:justify-between shadow-md shadow-slate-300 bg-white
     
     '>
       <div className='md:hidden text-slate-500'>
@@ -117,7 +117,7 @@ const Navbar = () => {
         </IconButton>
         </Link>
       </div>
-    </div>
+    </nav>
   )
 }
 

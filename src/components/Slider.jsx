@@ -30,7 +30,7 @@ const Slider = () => {
     // transfrom: translateX(slideIndex*-100vw) in the wrapper css div
 
   return (
-    <div className='flex w-full md:h-[28rem] h-44 relative bg-pink-400 overflow-hidden scroll-smooth'>
+    <section className='flex w-full md:h-[28rem] h-44 relative bg-pink-400 overflow-hidden scroll-smooth'>
       <div className='flex absolute top-[45%] left-0 rounded-full opacity-80 ml-5 bg-slate-200 z-10' onClick={()=>handleClick("left")}>
         <IconButton>
             <ChevronLeftRounded/>
@@ -74,7 +74,7 @@ const Slider = () => {
         }
             
         </div>
-    </div>
+    </section>
   )
 }
 

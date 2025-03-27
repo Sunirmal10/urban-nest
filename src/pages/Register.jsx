@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
-    <div class="mt-8 w-screen">
+    <main class="mt-8 w-screen">
       <div class="flex flex-col items-center justify-center px-6 py-10 mx-auto ">
         <div class="w-full bg-white rounded-lg border-slate-200 border md:mt-0 sm:max-w-md xl:p-0  ">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -100,7 +100,7 @@ const Register = () => {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

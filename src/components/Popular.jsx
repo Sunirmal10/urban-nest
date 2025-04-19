@@ -61,7 +61,7 @@ const Popular = () => {
 
 } 
       else if ( window.innerWidth <= 425){
-        setCardsOnScreen(2)
+        setCardsOnScreen(1)
 } 
  else {
   setCardsOnScreen(6)

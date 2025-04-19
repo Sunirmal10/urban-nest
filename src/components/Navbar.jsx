@@ -50,12 +50,23 @@ const Navbar = () => {
         displayMenu && 
         <div className='w-full h-screen bg-slate-100 z-20 absolute left-0 top-14'>
            <div className='flex flex-col gap-2 text-sm font-semibold cursor-pointer w-full p-2 h-screen'>
-            {
+            {/* {
               categories.map((cat)=>(
                 <Link to={'/product-list'} key={cat.id} onClick={(e)=>handleClick(e)}><div className='flex p-1 transition-all ease-in-out h-[56px] border-b w-full  border-slate-200 items-center z-10'>{cat.title}</div></Link>
               ))
-            }
+            } */}
 
+        <div className='flex p-1 transition-all ease-in-out h-[56px] border-b w-full  border-slate-200 items-center z-10'>
+      LOCATION
+        </div>
+        <div className='flex p-1 transition-all ease-in-out h-[56px] border-b w-full  border-slate-200 items-center z-10'>
+     
+      PREMIUM
+        </div>
+        <div className='flex p-1 transition-all ease-in-out h-[56px] border-b w-full  border-slate-200 items-center z-10'>
+     
+      ORDERS
+        </div>
         <div className='flex p-1 transition-all ease-in-out h-[56px] border-b w-full  border-slate-200 items-center z-10'>
         <Link to={"/register"}>
         SIGN UP
@@ -131,7 +142,7 @@ const Navbar = () => {
       
         <Link to={'/cart'}>
         <IconButton>
-        <Badge badgeContent={2} color='primary'>
+        <Badge badgeContent={cartItems ? cartItems.length : 0} color='primary'>
         <ShoppingCartOutlined />
         </Badge>          
         </IconButton>

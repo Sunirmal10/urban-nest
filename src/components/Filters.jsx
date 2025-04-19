@@ -251,13 +251,14 @@ const Filters = () => {
           Clear All
         </span>
       </div>{" "}
+      <span className="flex flex-wrap text-xs font-semibold text-red-600 mb-[-0.5rem] pl-4 pt-2">* Select a category first</span>
       {/* filter heading */}
       <div className="flex md:flex-col justify-evenly md:gap-3 py-2 px-5">
         {" "}
         {/* all filter wrapper */}
 
         {/* CATEFORIES filter */}
-        <span className="text-xs font-semibold text-red-600 mb-[-0.5rem] pt-2 md:pt-0">* Select a category first</span>
+        
         <div className="flex flex-col gap-2 md:text-sm text-[11px] pt-2">
           <span className="flex flex-col font-semibold">Categories</span>
           <label htmlFor="fashion">

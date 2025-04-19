@@ -240,7 +240,7 @@ export const products = [
     desc: "Protect your smartphone with this durable and stylish case.",
     price: 150,
     discount: "",
-    status: "popular",
+    status: "new",
   },
   {
     id: 23,
@@ -262,7 +262,7 @@ export const products = [
     desc: "Add warmth and style to your living room with this warm woolen blanket.",
     price: 400,
     discount: "",
-    status: "popular",
+    status: "new",
   },
   {
     id: 25,
@@ -284,7 +284,7 @@ export const products = [
     desc: "Achieve a flawless complexion with this long-lasting foundation makeup.",
     price: 350,
     discount: "",
-    status: "popular",
+    status: "normal",
   },
   {
     id: 27,
@@ -306,7 +306,7 @@ export const products = [
     desc: "Track your fitness and stay connected with this stylish smartwatch.",
     price: 400,
     discount: 40,
-    status: "popular",
+    status: "normal",
   },
   {
     id: 29,
@@ -339,7 +339,7 @@ export const products = [
     desc: "Illuminate your workspace with this modern and stylish tube.",
     price: 320,
     discount: "",
-    status: "popular",
+    status: "normal",
   },
   {
     id: 32,
@@ -383,7 +383,7 @@ export const products = [
     desc: "Track your health and fitness goals with this advanced fitness tracker.",
     price: 380,
     discount: "",
-    status: "popular",
+    status: "normal",
   },
   {
     id: 36,
@@ -438,6 +438,6 @@ export const products = [
     desc: "Complete your look with these retro-inspired vintage sunglasses.",
     price: 250,
     discount: "",
-    status: "popular",
+    status: "new",
   },
 ];

@@ -28,7 +28,7 @@ const Cart = () => {
   const totalCartItemsPrice = useSelector(
     (state) => state.app.totalCartItemsPrice
   );
-  console.log(cartItems, "cartItems");
+
 
   // const changeQuantity = (command) => {
   //   if (command === "add") {
@@ -104,14 +104,16 @@ const Cart = () => {
                 {/* add, remove, del buttons */}
                 <span className="flex flex-col md:flex-row mt-[-0.2rem] justify-start scale-70">
                   <div className="flex items-center p-0 rounded-md scale-[0.6] md:scale-75 cursor-pointer">
-                    <IconButton >
+                    <IconButton
+                     onClick={() => {
+                      dispatch(decrementItemQuantity(cartItem.id));
+                      dispatch(decrementTotalPrice(cartItem.id));
+                      // dispatch(calculateTotalPrice());
+                    }}
+                    >
                     <RemoveRounded
                     className="bg-yellow-300 rounded-full hover:bg-yellow-400"
-                      onClick={() => {
-                        dispatch(decrementItemQuantity(cartItem.id));
-                        dispatch(decrementTotalPrice(cartItem.id));
-                        // dispatch(calculateTotalPrice());
-                      }}
+                     
                     />
                     </IconButton>
                   
@@ -119,14 +121,16 @@ const Cart = () => {
                     <div className="flex items-center rounded-sm  border-slate-400 ml-1 justify-center w-8 h-7 bg-white">
                       {cartItem.quantity}
                     </div>
-                      <IconButton>
-                      <AddRounded
-                      className="bg-yellow-300 rounded-full hover:bg-yellow-400"
+                      <IconButton
                       onClick={() => {
                         dispatch(incrementItemQuantity(cartItem.id));
                         dispatch(incrementTotalPrice(cartItem.id));
                         // dispatch(calculateTotalPrice());
                       }}
+                      >
+                      <AddRounded
+                      className="bg-yellow-300 rounded-full hover:bg-yellow-400"
+                      
                     />
                       </IconButton>
                    

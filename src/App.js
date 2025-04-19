@@ -11,14 +11,16 @@ import {
   Outlet,
   RouterProvider,
 } from "react-router-dom";
-import ProductListCat from "./pages/ProductListCat";
-import BannerBottom from "./components/BannerBottom";
+
+
+
 
 function App() {
 
   const Layout = () => {
     return (
        <>
+         
        <Navbar/>
        <Outlet/>
        <Footer/>
@@ -62,9 +64,9 @@ function App() {
   ]);
 
   return (
-    <div>
+    <>
       <RouterProvider router={router} />
-    </div>
+    </>
 
   );
 }

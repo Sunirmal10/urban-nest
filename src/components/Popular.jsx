@@ -3,23 +3,28 @@ import { products } from "../constants/productsData";
 import PopularProduct from "./PopularProduct";
 import { IconButton } from "@mui/material";
 import { ChevronLeftRounded, ChevronRightRounded } from "@mui/icons-material";
+import Product from "./Product";
 
 const Popular = () => {
 
   const [cardWidthPlusGap, setCardWidthPlusGap] = useState(220);
+
+  const [cardsOnScreen, setCardsOnScreen] = useState(6)
+  
+  // filtering the original product list to popular products list
+  const popularProducts = products.filter((product)=> product.status === "popular")
+  const popularProductsLength = popularProducts.length;
+
+  let windowWidth = window.innerWidth;
   // const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   
   const handleResize = (width) => {
     // setWindowWidth(window.innerWidth)
-    if (width <= 768) setCardWidthPlusGap(164);
+    if (width <= 1024) setCardWidthPlusGap(164);
   };
 
   useEffect(() => {
-
-    console.log("x");
-
-    console.log("resize","width: ", window.innerWidth)
 
     window.addEventListener('resize', handleResize(window.innerWidth));
 
@@ -40,27 +45,37 @@ const Popular = () => {
   // });
 
   const handleClick = (direction) => {
-        if (window.innerWidth > 768 && cardWidthPlusGap === 164){ direction === "right"
-        ? setSlideIndex(slideIndex < 3 ? slideIndex + 1 : 0)
-        : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 3);
+        if (window.innerWidth > 1024){
+          setCardsOnScreen(6)
+
 } 
-        else if (window.innerWidth <= 768 && window.innerWidth > 640 && cardWidthPlusGap === 164){ direction === "right"
-        ? setSlideIndex(slideIndex < 4 ? slideIndex + 1 : 0)
-        : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 4);
+      else if (window.innerWidth <= 1024 && window.innerWidth > 768){
+        setCardsOnScreen(5)
 } 
-      else if ( window.innerWidth <= 640 && window.innerWidth > 425 && cardWidthPlusGap === 164){ direction === "right"
-        ? setSlideIndex(slideIndex < 4 ? slideIndex + 1 : 0)
-        : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 4); // 4 slides hide in total //
+        else if (window.innerWidth <= 768 && window.innerWidth > 640){ 
+          setCardsOnScreen(4)
+
+        } 
+      else if ( window.innerWidth <= 640 && window.innerWidth > 425){ 
+        setCardsOnScreen(4)
+
 } 
-      else if ( window.innerWidth <= 425 && cardWidthPlusGap === 164){ direction === "right"
-        ? setSlideIndex(slideIndex < 6 ? slideIndex + 1 : 0)
-        : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 6); // 6 slides hide in total //
+      else if ( window.innerWidth <= 425){
+        setCardsOnScreen(2)
 } 
- else   
-        { direction === "right"
-        ? setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0)
-        : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
-}    
+ else {
+  setCardsOnScreen(6)
+
+
+ }  
+
+ let cardIndex =  popularProductsLength - cardsOnScreen;
+ direction === "right"
+ // here slideIndex starts from the last card on view beside the right arrow button
+ ? setSlideIndex(slideIndex < cardIndex ? slideIndex + 1 : 0)
+ : setSlideIndex(slideIndex > 0 ? slideIndex - 1 : cardIndex);
+
+    
   };
 
   return (
@@ -85,12 +100,12 @@ const Popular = () => {
           transform: `translateX(-${slideIndex*parseInt(cardWidthPlusGap)}px)`, //wrapper
         }}
       >
-        {products.map((item) => (
-          <>
-            {item.status === "popular" && (
-              <PopularProduct item={item} key={item.id} />
-            )}
-          </>
+        {popularProducts.map((item) => (
+         
+        
+              <Product item={item} key={item.id} />
+        
+      
         ))}
       </div>
       <div

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 const Login = () => {
   return (
-    <main class=" mt-8">
-    <div class="flex flex-col items-center justify-center px-6 py-10 mx-auto h-full">
+    <main class=" mt-10">
+    <div class="flex flex-col items-center justify-center px-6 pt-12 pb-4 mx-auto h-full">
                 <div class="w-full bg-white rounded border-slate-200 border  md:mt-0 sm:max-w-md xl:p-0  ">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
@@ -28,7 +28,7 @@ const Login = () => {
                               <label htmlFor="remember" class="text-gray-500 ">Remember me</label>
                             </div>
                         </div> */}
-                        <a href="#" class="text-sm font-medium text-green-700 hover:underline ">Forgot password?</a>
+                        <Link to={"#"} class="text-sm font-medium text-green-700 hover:underline ">Forgot password?</Link>
                     </div>
                     <button type="submit" class="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-2 focus:outline-none focus:ring-green-700 font-medium rounded text-sm px-5 py-2.5 text-center">Sign in</button>
                     <p class="text-sm font-light text-gray-500 ">

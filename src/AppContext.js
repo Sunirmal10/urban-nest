@@ -1,4 +1,4 @@
-import React, { createContext, useRef, useState } from 'react'
+import React, { createContext, useState } from 'react'
 import { products } from './constants/productsData';
 
 const AppContext = createContext();
@@ -18,7 +18,10 @@ const AppProvider = ({children}) => {
 
 const [navCatSelected, setNavCatSelected] = useState(false);
 
-const [valChecked, setValChecked] = useState()
+const [valChecked, setValChecked] = useState();
+
+
+
 
 
 

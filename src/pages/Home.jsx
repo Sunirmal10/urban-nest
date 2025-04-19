@@ -8,7 +8,7 @@ import BannerBottom from '../components/BannerBottom'
 
 const Home = () => {
   return (
-    <main className='flex flex-col mt-[60px]  gap-1 md:gap-4 mb-2'>
+    <main className='flex flex-col mt-[60px] w-dvw gap-1 md:gap-4 mb-2'>
       <Slider/>
       <Categories/>
       <Popular/>

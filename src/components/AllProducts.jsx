@@ -19,15 +19,17 @@ const AllProducts = () => {
       {
         loadMore < 36 ?
       
-      <button className='flex rounded-md  bg-slate-100 text-sm hover:bg-slate-200 cursor-pointer active:scale-[0.8] px-4 py-3'
+      <button className='flex rounded-md border text-slate-500 border-slate-200 bg-slate-100 text-sm hover:bg-slate-200 cursor-pointer active:scale-[0.8] px-4 py-3'
       onClick={()=>setLoadMore((prev)=>prev < 36 ? prev + 6 : 36)}
       >Load More....</button>
     :
-    <button className='flex rounded-md  bg-slate-100 text-sm hover:bg-slate-200 cursor-pointer active:scale-[0.8] px-4 py-3'
+    <Link to={'/product-list'}>
+    <button className='flex rounded-md border text-slate-500 border-slate-200 bg-slate-100 text-sm hover:bg-slate-200 cursor-pointer active:scale-[0.8] px-4 py-3'
      
       >
-        <Link to={'/product-list'}>view all..</Link>
+       view all..
       </button>
+      </Link>
     }
       </div>
   )

@@ -11,7 +11,7 @@ const Filters = () => {
     setSelectedPrice,
     ratings,
     setRatings,
-    valChecked, setValChecked
+    setValChecked
   } = useContext(AppContext);
 
   const tagRef = useRef();
@@ -57,6 +57,7 @@ const Filters = () => {
     setSelectedCat([]); // clearing all selected categories
     setSelectedPrice([]); // clearing all selected prices
     setRatings(); // clearing ratings
+    setValChecked("All")
     const elements = document.getElementsByTagName("input");
     tagRef.current = Array.from(elements);
     tagRef.current.forEach(unCheck); // unchecking all selected checkboxes
@@ -151,18 +152,23 @@ const Filters = () => {
             priceList = flat.filter(
               (item) => item.price >= 500 && item.price < 1000
             );
+            console.log(priceList, "priceList");
           }
           if (itemPrice === "5000") {
             priceList = flat.filter(
               (item) => item.price >= 1000 && item.price < 5000
             );
+            console.log(priceList, "priceList");
           }
           if (itemPrice === "10000") {
             priceList = flat.filter((item) => item.price > 5000);
+            console.log(priceList, "priceList");
+
           }
 
           return priceList;
         });
+        
 
         let flatAgain = tempPriceItems.flat();
 
@@ -233,13 +239,13 @@ const Filters = () => {
   };
 
   return (
-    <aside className="w-full md:w-1/5 border-b border-slate-300 pb-2 md:pb-0 md:border-none">
+    <aside className="w-full md:w-1/5 border-b bg-slate-100 border-slate-300 pb-2 md:pb-0 md:border-none">
       {" "}
       {/* filter container */}
       <div className="flex font-semibold justify-between mt-5 pl-5 pb-3 border-slate-300 border-b">
         <span>FILTERS</span>
         <span
-          className="text-sm pt-1 text-slate-500 cursor-pointer mr-4 md:mr-0 hover:text-slate-700"
+          className="text-sm pt-1 text-slate-500 cursor-pointer mr-4 hover:text-slate-700"
           onClick={handleClearAll}
         >
           Clear All
@@ -249,9 +255,11 @@ const Filters = () => {
       <div className="flex md:flex-col justify-evenly md:gap-3 py-2 px-5">
         {" "}
         {/* all filter wrapper */}
-        {/* categories filter */}
+
+        {/* CATEFORIES filter */}
+        <span className="text-xs font-semibold text-red-600 mb-[-0.5rem] pt-2 md:pt-0">* Select a category first</span>
         <div className="flex flex-col gap-2 md:text-sm text-[11px] pt-2">
-          <p className="flex flex-col font-semibold">Categories</p>
+          <span className="flex flex-col font-semibold">Categories</span>
           <label htmlFor="fashion">
             <input
               type="checkbox"
@@ -297,7 +305,7 @@ const Filters = () => {
             Beauty
           </label>
         </div>
-        {/* price filter */}
+        {/* PRICE filter */}
         <div className="flex flex-col gap-2 md:text-sm text-[11px] pt-2">
           <p className="flex flex-col font-semibold">Price</p>
           <label htmlFor="less500">
@@ -341,7 +349,7 @@ const Filters = () => {
             {">"} ₹5000
           </label>
         </div>
-        {/* ratings filter */}
+        {/* RATINGS filter */}
         <div className="flex flex-col gap-2 md:text-sm text-[11px] pt-2">
           <p className="flex flex-col font-semibold">Ratings</p>
           <label htmlFor="fourAbove">

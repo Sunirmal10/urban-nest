@@ -16,7 +16,8 @@ This project represents an innovative e-commerce website, skillfully crafted wit
 
 # Preview:
 
-![Screenshot 2025-04-20 052022]
+![Screenshot 2025-04-20 052022](https://github.com/user-attachments/assets/523fc7bd-fa1d-42f1-b828-fdfa4e9937dd)
+
 
 
 

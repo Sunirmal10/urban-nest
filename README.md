@@ -16,7 +16,8 @@ This project represents an innovative e-commerce website, skillfully crafted wit
 
 # Preview:
 
-[urbannest](https://github.com/user-attachments/assets/caa8472a-0e3b-46a1-8349-7c628753889a)
+![Screenshot 2025-04-20 052022]
+
 
 
 # Github repo link:

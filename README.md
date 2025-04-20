@@ -27,7 +27,7 @@ A front-end e-commerce website built with React JS, Tailwind CSS, and Material U
 
 # website link:
 
-[urban-nest-shop.netlify.app](https://urban-nest-neon.vercel.app/)
+[urban-nest-neon.vercel.app](https://urban-nest-neon.vercel.app/)
 
 # Deployment:
 
